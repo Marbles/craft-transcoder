@@ -118,7 +118,7 @@ class Transcode extends Component
             $videoOptions['fileSuffix'] = $thisEncoder['fileSuffix'];
 
             // Build the basic command for ffmpeg
-            $ffmpegCmd = $settings['ffmpegPath']
+            $ffmpegCmd = 'nice -19 cpulimit -l 30 -- ' . $settings['ffmpegPath']
                 .' -i '.escapeshellarg($filePath)
                 .' -vcodec '.$thisEncoder['videoCodec']
                 .' '.$thisEncoder['videoCodecOptions']
@@ -248,7 +248,7 @@ class Transcode extends Component
             $thumbnailOptions = $this->coalesceOptions('defaultThumbnailOptions', $thumbnailOptions);
 
             // Build the basic command for ffmpeg
-            $ffmpegCmd = $settings['ffmpegPath']
+            $ffmpegCmd = 'nice -19 cpulimit -l 30 -- ' . $settings['ffmpegPath']
                 .' -i '.escapeshellarg($filePath)
                 .' -vcodec mjpeg'
                 .' -vframes 1';
@@ -345,7 +345,7 @@ class Transcode extends Component
             $audioOptions['fileSuffix'] = $thisEncoder['fileSuffix'];
 
             // Build the basic command for ffmpeg
-            $ffmpegCmd = $settings['ffmpegPath']
+            $ffmpegCmd = 'nice -19 cpulimit -l 30 -- ' . $settings['ffmpegPath']
                 .' -i '.escapeshellarg($filePath)
                 .' -acodec '.$thisEncoder['audioCodec']
                 .' '.$thisEncoder['audioCodecOptions']
@@ -612,7 +612,7 @@ class Transcode extends Component
             $gifOptions['fileSuffix'] = $thisEncoder['fileSuffix'];
 
             // Build the basic command for ffmpeg
-            $ffmpegCmd = $settings['ffmpegPath']
+            $ffmpegCmd = 'nice -19 cpulimit -l 30 -- ' . $settings['ffmpegPath']
                 .' -f gif'
                 .' -i '.escapeshellarg($filePath)
                 .' -vcodec '.$thisEncoder['videoCodec']
